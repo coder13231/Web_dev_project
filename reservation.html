@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seat Reservation - The Hungry Hub</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffeb99 0%, #ffcc99 50%, #ff99cc 100%);
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      padding-bottom: 40px;
+    }
+
+    header {
+      background: linear-gradient(90deg, #ff9966, #ffcc99, #ff99cc);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 32px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav {
+      background: #fff9e6;
+      padding: 15px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #ff9966, #ffcc99);
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+
+    .logout-btn {
+      background: linear-gradient(135deg, #ff6699, #ff99cc) !important;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .form-box {
+      background: #fff9e6;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      border-left: 5px solid #ff9966;
+    }
+
+    h2 {
+      color: #ff6600;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      color: #ff6600;
+      font-weight: bold;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="date"],
+    input[type="time"],
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ffcc99;
+      border-radius: 8px;
+      font-size: 14px;
+      background: #fffef0;
+      color: #333;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="number"]:focus,
+    input[type="date"]:focus,
+    input[type="time"]:focus,
+    select:focus {
+      outline: none;
+      border-color: #ff9966;
+      background: #fffef0;
+    }
+
+
+    .price-display {
+      background: #ffeb99;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 25px;
+      border: 2px solid #ffcc99;
+    }
+
+    .price-display p {
+      color: #666;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .price-value {
+      color: #ff6600;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #ff9966, #ffcc99);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🪑 Seat Reservation</h1>
+</header>
+
+<div class="nav">
+  <a href="home.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="reservation.html">Reservations</a>
+  <a href="review.html">Reviews</a>
+  <a href="order.html">Order</a>
+  <a href="index.html" class="logout-btn">Logout</a>
+</div>
+
+<div class="container">
+  <div class="form-box">
+    <h2>Reserve Your Table</h2>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name of Guest:</label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender of Table Owner:</label>
+          <select id="gender" required>
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="date">Date:</label>
+          <input type="date" id="date" required>
+        </div>
+        <div class="form-group">
+          <label for="time">Time:</label>
+          <input type="time" id="time" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="seats">Number of Seats:</label>
+          <input type="number" id="seats" placeholder="Enter number of seats" min="1" max="20" required oninput="calculatePrice()">
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Complete Reservation</button>
+    </form>
+  </div>
+</div>
+
+<div class="form row">
+  <div class="form group">
+    <label for="uploading picture"></label>
+  </div>
+</div>
+ 
+<script>
+function calculatePrice() {
+  const seats = parseInt(document.getElementById('seats').value) || 0;
+  const pricePerSeat = parseInt(document.getElementById('pricePerSeat').value) || 0;
+  const totalPrice = seats * pricePerSeat;
+  document.getElementById('totalPrice').textContent = '₹' + totalPrice;
+}
+
+calculatePrice();
+</script>
+
+</body>
+</html>

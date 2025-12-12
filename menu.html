@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menu - The Hungry Hub</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffeb99 0%, #ffcc99 50%, #ff99cc 100%);
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      padding-bottom: 40px;
+    }
+
+    header {
+      background: linear-gradient(90deg, #ff9966, #ffcc99, #ff99cc);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 32px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav {
+      background: #fff9e6;
+      padding: 15px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #ff9966, #ffcc99);
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .logout-btn {
+      background: linear-gradient(135deg, #ff6699, #ff99cc) !important;
+    }
+
+
+    .menu-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .item {
+      background: #fff9e6;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      border-left: 5px solid #ff9966;
+    }
+
+    
+    .item-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .item-content {
+      padding: 20px;
+    }
+
+    .item h3 {
+      color: #ff6600;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .price {
+      color: #ff9966;
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .rating {
+      background: #ffeb99;
+      padding: 8px 12px;
+      border-radius: 5px;
+      color: #ff6600;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .review {
+      color: #666;
+      font-size: 13px;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .section-title {
+      color: #ff6600;
+      font-size: 24px;
+      margin: 30px 0 20px 0;
+      text-align: center;
+      text-transform: uppercase;
+      border-bottom: 3px solid #ffcc99;
+      padding-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🍽️ Our Menu</h1>
+</header>
+
+<div class="nav">
+  <a href="home.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="reservation.html">Reservations</a>
+  <a href="review.html">Reviews</a>
+  <a href="order.html">Order</a>
+  <a href="index.html" class="logout-btn">Logout</a>
+</div>
+
+<div class="menu-container">
+  <h2 class="section-title">🍜 Indian Dishes</h2>
+  <div class="menu-grid">
+    <div class="item">
+      <img src="https://images.pexels.com/photos/11818239/pexels-photo-11818239.jpeg" alt="Chaap" class="item-image">
+      <div class="item-content">
+        <h3>Chole Bhature</h3>
+        <div class="price">₹180</div>
+        <div class="rating">⭐ 4.8/5</div>
+        <p class="review">"Fluffy, Tasty and Delicious!"</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="https://media.istockphoto.com/id/1219174110/photo/malai-kofta-curry-in-black-bowl-at-dark-slate-background-malai-kofta-is-indian-cuisine-dish.jpg?s=2048x2048&w=is&k=20&c=ed-HoijEosqErj7FHaj9P0SHHApTPYZmd19Qzs4Awns=" alt="Butter Chicken" class="item-image">
+      <div class="item-content">
+        <h3>Malai kofta</h3>
+        <div class="price">₹220</div>
+        <div class="rating">⭐ 4.7/5</div>
+        <p class="review">"Creamy, malai kofta with naan. Full plate with 4 naan."</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="https://media.istockphoto.com/id/1085148362/photo/paneer-do-pyaza-is-a-popular-punjabi-vegetarian-recipe-using-cubes-of-cottage-cheese-with.jpg?s=2048x2048&w=is&k=20&c=HbZ2t_wixY9kQ4-Wv7yETsiH7l5zoQ_sXlXWbaIi6_w=" alt="Tandoori Chicken" class="item-image">
+      <div class="item-content">
+        <h3>Paneer Do Pyaza</h3>
+        <div class="price">₹300</div>
+        <div class="rating">⭐ 4.6/5</div>
+        <p class="review">"Gravy and perfectly spiced. Traditional recipe executed flawlessly."</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="https://media.istockphoto.com/id/531241066/photo/dal-makhani-or-dal-makhani-or-daal-makhni.jpg?s=2048x2048&w=is&k=20&c=h3kYJYhhXTYD_skqyK3604MRAcJXVi_on_Vt3-x6Co0=" alt="Dal Makhani" class="item-image">
+      <div class="item-content">
+        <h3>Dal Makhani</h3>
+        <div class="price">₹220</div>
+        <div class="rating">⭐ 4.5/5</div>
+        <p class="review">"Creamy lentils cooked to perfection. A vegetarian favorite!"</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="https://media.istockphoto.com/id/1310465083/photo/chole-samosa.jpg?s=2048x2048&w=is&k=20&c=wJYGv4J1yfXt62qXEgxBj8pWGj81chJZ84yjy_rvLNk=" alt="Samosa" class="item-image">
+      <div class="item-content">
+        <h3>Chole Samosa Plate</h3>
+        <div class="price">₹50</div>
+        <div class="rating">⭐ 4.4/5</div>
+        <p class="review">"Crispy pastry with spiced potato filling. Great starter!"</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="https://images.unsplash.com/photo-1701579231320-cc2f7acad3cd?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Paneer" class="item-image">
+      <div class="item-content">
+        <h3>Paneer Tikka</h3>
+        <div class="price">₹280</div>
+        <div class="rating">⭐ 4.6/5</div>
+        <p class="review">"Soft paneer cubes with smoky flavor. Perfect appetizer!"</p>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+</body>
+</html>

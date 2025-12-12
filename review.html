@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reviews - The Hungry Hub</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffeb99 0%, #ffcc99 50%, #ff99cc 100%);
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      padding-bottom: 40px;
+    }
+
+    header {
+      background: linear-gradient(90deg, #ff9966, #ffcc99, #ff99cc);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 32px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav {
+      background: #fff9e6;
+      padding: 15px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #ff9966, #ffcc99);
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .logout-btn {
+      background: linear-gradient(135deg, #ff6699, #ff99cc) !important;
+    }
+
+
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .form-box {
+      background: #fff9e6;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      border-left: 5px solid #ff9966;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #ff6600;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      color: #ff6600;
+      font-weight: bold;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ffcc99;
+      border-radius: 8px;
+      font-size: 14px;
+      background: #fffef0;
+      color: #333;
+      font-family: Arial, sans-serif;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: #ff9966;
+      background: #fffef0;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .rating-display {
+      background: #ffeb99;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 20px;
+      border: 2px solid #ffcc99;
+    }
+
+    .rating-value {
+      font-size: 32px;
+      color: #ff6600;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .rating-label {
+      color: #666;
+      font-size: 13px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #ff9966, #ffcc99);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>⭐ Customer Reviews</h1>
+</header>
+
+<div class="nav">
+  <a href="home.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="reservation.html">Reservations</a>
+  <a href="review.html">Reviews</a>
+  <a href="order.html">Order</a>
+  <a href="index.html" class="logout-btn">Logout</a>
+</div> 
+
+<div class="container">
+  <div class="form-box">
+    <h2>Share Your Review</h2>
+    <form>
+      <div class="form-group">
+        <label for="customerName">Your Name:</label>
+        <input type="text" id="customerName" placeholder="Enter your name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="rating">Rating (0-10 points):</label>
+        <input type="number" id="rating" min="0" max="10" placeholder="Rate from 0 to 10" required oninput="updateRating()">
+        <div class="rating-display">
+          <div class="rating-value" id="ratingDisplay">0/10</div>
+          <div class="rating-label">Your Rating</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="insert images">Upload Images:</label>
+        <input type="file" id="images" accept="image/*" multiple>
+      </div>
+
+      <div class="form-group">
+        <label for="review">Your Review:</label>
+        <textarea id="review" placeholder="Write your detailed review about your dining experience..." required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Review</button>
+    </form>
+  </div>
+
+
+<script>
+function updateRating() {
+  const rating = document.getElementById('rating').value;
+  document.getElementById('ratingDisplay').textContent = rating + '/10';
+}
+updateRating();
+</script>
+
+</body>
+</html>
